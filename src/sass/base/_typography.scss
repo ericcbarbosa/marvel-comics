@@ -1,0 +1,50 @@
+// Titulos:
+
+
+// Fonts Highlight
+.txt-title, .txt-subtitle {
+    font-family: $font-highlight;
+}
+.txt-color-primary {
+    color: $color-primary;
+}
+.txt-color-secondary {
+    color: $color-secondary;
+}
+.txt-color-info {
+    color: $color-info;
+}
+.txt-color-success {
+    color: $color-success;
+}
+.txt-color-warning {
+    color: $color-warning;
+}
+.txt-color-danger {
+    color: $color-danger;
+}
+.txt-color-link {
+    color: $color-link;
+}
+
+.content {
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-highlight;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}

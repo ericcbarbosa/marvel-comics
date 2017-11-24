@@ -1,0 +1,17 @@
+<h1 *ngIf="loading">Carregando...</h1>
+<table *ngIf="!loading">
+  <thead>
+    <tr>
+      <td>Titulo</td>
+      <td>Descição</td>
+      <td>Data de Publicação</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let comic of comics">
+      <td>{{ comic.title }}</td>
+      <td>{{ comic.description }}</td>
+      <td>{{ comic.dates[0].date }}</td>
+    </tr>
+  </tbody>
+</table>

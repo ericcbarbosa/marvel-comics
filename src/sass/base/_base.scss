@@ -1,0 +1,26 @@
+body {
+    font-family: $font-primary;
+    font-size: $body-font-size;
+}
+
+.bg-color-primary {
+    background-color: $color-primary;
+}
+.bg-color-secondary {
+    background-color: $color-secondary;
+}
+.bg-color-info {
+    background-color: $color-info;
+}
+.bg-color-success {
+    background-color: $color-success;
+}
+.bg-color-warning {
+    background-color: $color-warning;
+}
+.bg-color-danger {
+    background-color: $color-danger;
+}
+.bg-color-link {
+    background-color: $color-link;
+}
