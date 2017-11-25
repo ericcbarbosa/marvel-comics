@@ -1,0 +1,59 @@
+.btn {
+    font-weight: bold;
+    padding: 0.5rem 0.7rem;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+
+    @include border-radius($border-radius);
+
+    &.default {
+        color: $color-primary;
+        background-color: $color-light;
+    }
+    &.primary {
+        color: $color-lighter;
+        background-color: $color-primary;
+    }
+    &.secondary {
+        color: $color-lighter;
+        background-color: $color-secondary;
+    }
+    &.info {
+        color: $color-lighter;
+        background-color: $color-info;
+    }
+    &.success {
+        color: $color-lighter;
+        background-color: $color-success;
+    }
+    &.warning {
+        color: $color-lighter;
+        background-color: $color-warning;
+    }
+    &.danger {
+        color: $color-lighter;
+        background-color: $color-danger;
+    }
+    &.link {
+        color: $color-link;
+        background-color: transparent;
+    }
+    &.lighter {
+        color: $color-dark;
+        background-color: $color-lighter;
+    }
+    &.muted {
+        color: $color-dark;
+        background-color: $color-light;
+    }
+    &.dark {
+        color: $color-lighter;
+        background-color: $color-dark;
+    }
+}
+
+.nav-link {
+    @extend .btn;
+}

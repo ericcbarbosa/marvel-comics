@@ -3,24 +3,60 @@ body {
     font-size: $body-font-size;
 }
 
-.bg-color-primary {
-    background-color: $color-primary;
+a {
+    color: $color-link;
+
+    &:visited {
+        color: desaturate($color-link, 30%);
+    }
+
+    &:hover {
+        color: saturate($color-link, 30%);
+    }
+
+    &:active {
+        color: saturate($color-link, 50%);
+    }
 }
-.bg-color-secondary {
-    background-color: $color-secondary;
+
+// Margins
+.mt-0 { margin-top: 1rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-0 { margin-bottom: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.ml-0 { margin-left: 1rem; }
+.ml-1 { margin-left: 1rem; }
+.ml-2 { margin-left: 2rem; }
+.mr-0 { margin-right: 1rem; }
+.mr-1 { margin-right: 1rem; }
+.mr-2 { margin-right: 2rem; }
+
+// BG Colors
+.bg-color-primary { background-color: $color-primary; }
+.bg-color-secondary { background-color: $color-secondary; }
+
+.bg-color-info { background-color: $color-info; }
+.bg-color-success { background-color: $color-success; }
+.bg-color-warning { background-color: $color-warning; }
+.bg-color-danger { background-color: $color-danger; }
+.bg-color-link { background-color: $color-link; }
+
+.bg-color-light { background-color: $color-light; }
+.bg-color-muted { background-color: $color-muted; }
+.bg-color-dark { background-color: $color-dark; }
+
+// Bg Image
+.bg-default {
+    background-repeat: no-repeat;
+    background-position: center;
 }
-.bg-color-info {
-    background-color: $color-info;
+.bg-cover {
+    @include background-size( cover );
 }
-.bg-color-success {
-    background-color: $color-success;
-}
-.bg-color-warning {
-    background-color: $color-warning;
-}
-.bg-color-danger {
-    background-color: $color-danger;
-}
-.bg-color-link {
-    background-color: $color-link;
+
+// Block modifiers
+.border-radius {
+    @include border-radius($border-radius);
 }

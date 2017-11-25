@@ -1,0 +1,42 @@
+.navbar {
+    // @include flex-bar();
+    // @include box-shadow( 0 -2px 2px rgba(0, 0, 0, 0.05) inset );
+    border-bottom: 4px solid transparent;
+
+    &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        border-bottom-color: darken( $color-light, 5% );
+    }
+
+    .content {
+        width: $max-width;
+        padding: 0.5rem 1rem;
+        @include flex-bar();
+
+        li {
+            display: flex;
+
+            + li {
+                margin-left: 0.5rem;
+            }
+
+            .nav-link {
+                text-transform: uppercase;
+                border: 1px solid transparent;
+                @include border-radius(3px);
+
+                &:hover,
+                &:focus {
+                    border-color: darken( $color-light, 6% );
+                    background-color: darken( $color-light, 4% );
+                }
+
+                
+            }
+        }
+    }
+}

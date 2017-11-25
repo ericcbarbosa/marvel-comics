@@ -1,20 +1,26 @@
-$marvel-red: #f0141e;
-$black: #000;
-$white: #FFF;
-$gray-light: #eee;
-$gray: #929292;
-
+$marvel-red: hsl(357, 88%, 51%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$gray-light: hsl(0, 2%, 95%);
+$gray: hsl(0, 0%, 57%);
+$gray-dark: hsl(0, 0%, 20%);
 
 // Colors:
-
 $color-primary: $marvel-red;
-$color-secondary: $black;
+$color-secondary: hsl(0, 0%, 20%);
 
-$color-info: rgb(0, 110, 255);
-$color-success: rgb(24, 255, 166);
-$color-warning: rgb(255, 230, 0);
-$color-danger: rgb(252, 0, 0);
-$color-link: #3273dc;
+$color-info: hsl(214, 100%, 50%);
+$color-success: hsl(157, 100%, 55%);
+$color-warning: hsl(54, 100%, 50%);
+$color-danger: hsl(0, 100%, 49%);
+$color-link: hsl(217, 71%, 53%);
+$color-link-visited: hsl(217, 54%, 38%);
+
+$color-lighter: $white;
+$color-light: $gray-light;
+$color-muted: $gray;
+$color-dark: $gray-dark;
+$color-darker: $black;
 
 // Fonts:
 $font-primary: 'Cabin', sans-serif;
@@ -22,3 +28,8 @@ $font-highlight: 'Oswald', sans-serif;
 
 $body-family: $font-primary;
 $body-font-size: 16px;
+
+$border-radius: 5px;
+
+// dimensions
+$max-width: 1200px;

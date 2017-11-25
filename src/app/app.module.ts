@@ -17,6 +17,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ApiUrlConstructor } from './providers/api-url-constructor';
 import { HeroesService } from './providers/heroes.service';
 import { ComicsService } from './providers/comics.service';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ComicsService } from './providers/comics.service';
     ComicsComponent,
     ComicDetailComponent,
     ComicHeroComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

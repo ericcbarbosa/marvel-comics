@@ -4,6 +4,7 @@
     flex-flow: row wrap;
     justify-content: center;
     align-content: flex-start;
+    margin-bottom: 1rem;
 
     + .row {
         margin-top: 1rem;
@@ -13,11 +14,39 @@
         flex-basis: 0;
         flex-grow: 1;
         @include padding-lr(1rem);
+
+        .big {
+            flex-grow: 2;
+        }
     }
 }
 
-.content {
+.content,
+.container {
     max-width: 1200px;
-    @include padding-lr(1rem);
+    padding: 1rem;
     @include margin-center();
+}
+
+.footer {
+    margin-top: 2rem;
+}
+
+.header,
+.footer {
+    .content {
+        margin-bottom: 0;
+    }
+}
+
+.flex-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.flex-col {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
