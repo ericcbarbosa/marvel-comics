@@ -47,14 +47,11 @@ export class ComicDetailComponent implements OnInit {
                           (res) => {
                             this.comic = res.data.results[0];
                             this.pageDescription = res.attributionText;
-                            console.log(res);
                           },
                           (error) => console.log(error),
                           () => {
                             this.loading = false;
-                            console.log(this.comic);
                           }
                         );
   }
-
 }

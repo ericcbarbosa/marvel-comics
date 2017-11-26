@@ -11,5 +11,11 @@ export class CardDetailComponent implements OnInit {
   @Input() comic: any;
 
   constructor() {}
-  ngOnInit() { }
+  ngOnInit() {}
+
+  getCharId(URI){
+    let charArray = URI.split('/');
+    
+    return charArray[charArray.length -1];
+  }
 }
