@@ -20,21 +20,28 @@ a {
 }
 
 // Margins
-.m-0 { margin: 1rem; }
+.m-auto { margin: auto; }
+.m-0 { margin: 0; }
 .m-1 { margin: 1rem; }
 .m-2 { margin: 2rem; }
-.mt-0 { margin-top: 1rem; }
+
+.mt-auto { margin-top: auto; }
+.mt-0 { margin-top: 0; }
 .mt-1 { margin-top: 1rem; }
 .mt-2 { margin-top: 2rem; }
-.mb-0 { margin-bottom: 1rem; }
+
+.mb-auto { margin-bottom: auto; }
+.mb-0 { margin-bottom: 0; }
 .mb-1 { margin-bottom: 1rem; }
 .mb-2 { margin-bottom: 2rem; }
+
 .ml-auto { margin-left: auto; }
-.ml-0 { margin-left: 1rem; }
+.ml-0 { margin-left: 0; }
 .ml-1 { margin-left: 1rem; }
 .ml-2 { margin-left: 2rem; }
+
 .mr-auto { margin-right: auto; }
-.mr-0 { margin-right: 1rem; }
+.mr-0 { margin-right: 0; }
 .mr-1 { margin-right: 1rem; }
 .mr-2 { margin-right: 2rem; }
 
@@ -56,9 +63,9 @@ a {
 .pr-2 { padding-right: 2rem; }
 
 // Floats
-.fl-l { float: left; }
-.fl-r { float: right; }
-.fl-n { float: none; }
+.fl-left { float: left; }
+.fl-right { float: right; }
+.fl-none { float: none; }
 
 // BG Colors
 .bg-color-primary { background-color: $color-primary; }
@@ -83,6 +90,53 @@ a {
     @include background-size( cover );
 }
 
+// Image
+.img-radius { @include border-radius(100%); }
+.img-block { display: block; }
+
+.img-coin {
+    height: 200px;
+    width: 200px;
+    flex-grow: 0;
+    border: 3px solid transparent;
+    @include border-radius(100%);
+    @include box-shadow(-4px -2px 0px 3px $color-dark);
+
+    &.default {
+        border-color: $color-primary;
+    }
+    &.primary {
+        border-color: $color-primary;
+    }
+    &.secondary {
+        border-color: $color-secondary;
+    }
+    &.info {
+        border-color: $color-info;
+    }
+    &.success {
+        border-color: $color-success;
+    }
+    &.warning {
+        border-color: $color-warning;
+    }
+    &.danger {
+        border-color: $color-danger;
+    }
+    &.link {
+        border-color: transparent;
+    }
+    &.light {
+        border-color: $color-light;
+    }
+    &.muted {
+        border-color: $color-muted;
+    }
+    &.dark {
+        border-color: $color-dark;
+    }
+}
+
 // Block modifiers
 .border-radius {
     @include border-radius($border-radius);
@@ -93,12 +147,8 @@ a {
     padding: 0.2rem 0.4rem;
     @include border-radius(3px);
     
-    &:nth-child(2) {
-        margin-left: 0.3rem;
-    }
-    
     + .tag {
-        margin-right: 0.3rem;
+        margin-left: 0.3rem;
     }
 
     &.default {
@@ -285,6 +335,43 @@ a {
         a {
             color: $color-light;
             text-decoration: none;
+        }
+    }
+}
+
+.collection {
+    margin: 0;
+    padding: 0;
+    border: 1px solid $color-muted;
+    @include border-radius();
+
+    li {
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid $color-muted;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &.with-links {
+        li {
+            padding: 0;
+
+            a {
+                padding: 0.5rem 1rem;
+                display: block;
+                background: $color-light;
+                color: $color-link;
+                text-decoration: none;
+
+                @include transition( color .3s, background .3s );
+
+                &:hover,
+                &:focus {
+                    background-color: darken( $color-light, 5% );
+                }
+            }
         }
     }
 }

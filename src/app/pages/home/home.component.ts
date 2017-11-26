@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  private comics: Observable<any>;
-  private disclaimer: string = '';
+  private comics: any;
+  private disclaimer: any;
   private loading: boolean = false;
   private comicsAmount: number = 3;
 

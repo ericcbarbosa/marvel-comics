@@ -47,14 +47,27 @@
     }
 }
 
+.flex {
+    display: flex;
+}
+
 .flex-bar {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
+
 .flex-col {
     display: flex;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-align-start {
+    align-items: flex-start;
 }

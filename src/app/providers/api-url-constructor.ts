@@ -13,19 +13,37 @@ export class ApiUrlConstructor {
     // Query Defaults
     private format: string = 'comic';
     private formatType: string = 'comic';
-    private orderBy: string = '-onsaleDate';
+    private noVariants: string = 'true';
+    private orderBy: string = '-focDate';
     private limitQuery: number = 3;
     private offset: number = 0;
 
     // Iron Man
     private heroId: number = 1009368;
 
+    getHeroById(id: number = this.heroId) {
+        let timestamp = Number(new Date());
+        let hash      = Md5.hashStr(timestamp + this._key + this.key);
+
+        let url: string = `${this.baseUrl}characters/${id}?ts=${timestamp}&apikey=${this.key}&hash=${hash}`;
+
+        return url;
+    }
+
+    getHeroByName(name: string = '') {
+        let timestamp = Number(new Date());
+        let hash      = Md5.hashStr(timestamp + this._key + this.key);
+
+        let url: string = `${this.baseUrl}characters?nameStartsWith=${name}&ts=${timestamp}&apikey=${this.key}&hash=${hash}`;
+
+        return url;
+    }
 
     getComicsUrl(offset: number = this.offset, limit: number = this.limitQuery): any {
         let timestamp = Number(new Date());
         let hash      = Md5.hashStr(timestamp + this._key + this.key);
 
-        let url: string = `${this.baseUrl}comics?format=${this.format}&formatType=${this.formatType}&orderBy=${this.orderBy}&limit=${limit}&offset=${offset*limit}&ts=${timestamp}&apikey=${this.key}&hash=${hash}`;
+        let url: string = `${this.baseUrl}comics?format=${this.format}&formatType=${this.formatType}&noVariants=${this.noVariants}&orderBy=${this.orderBy}&limit=${limit}&offset=${offset*limit}&ts=${timestamp}&apikey=${this.key}&hash=${hash}`;
 
         return url;
     }
@@ -48,7 +66,7 @@ export class ApiUrlConstructor {
         let timestamp = Number(new Date());
         let hash      = Md5.hashStr(timestamp + this._key + this.key);
 
-        let url: string = `${this.baseUrl}comics?format=${this.format}&formatType=${this.formatType}&characters=${heroId}&orderBy=${this.orderBy}&limit=${limit}&offset=${offset*limit}&ts=${timestamp}&apikey=${this.key}&hash=${hash}`;
+        let url: string = `${this.baseUrl}comics?format=${this.format}&formatType=${this.formatType}&noVariants=${this.noVariants}&characters=${heroId}&orderBy=${this.orderBy}&limit=${limit}&offset=${offset*limit}&ts=${timestamp}&apikey=${this.key}&hash=${hash}`;
 
         return url;
     }

@@ -50,9 +50,14 @@
                 &:focus {
                     border-color: darken( $color-light, 6% );
                     background-color: darken( $color-light, 4% );
-                }
+                }                
+            }
 
-                
+            &.active {
+                .nav-link.default {
+                    border-color: darken( $color-light, 6% );
+                    background-color: darken( $color-light, 4% );
+                }
             }
         }
     }

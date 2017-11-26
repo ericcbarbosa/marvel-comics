@@ -1,0 +1,14 @@
+input, select, textarea {
+    color: $color-dark;
+    font-weight: 700;
+    background-color: $color-light;
+    padding: 0.6rem 1rem 0.4rem 1rem;
+    border: 2px solid $color-muted;
+    @include border-radius();
+    
+    &:focus {
+        outline: none;
+        border-color: $color-primary;
+        background-color: lighten($color-light, 10%);
+    }
+}

@@ -14,7 +14,7 @@
     <ul class="list-inline info">
       <li class="list-inline-item" 
         *ngFor="let char of comic.characters.items">
-          <a [routerLink]="['/comics/hero', getCharId(char.resourceURI)]" target="_blank"> {{ char.name }} </a>
+          <a [routerLink]="['/comics/hero', getCharId(char.resourceURI)]"> {{ char.name }} </a>
       </li>
     </ul>
 

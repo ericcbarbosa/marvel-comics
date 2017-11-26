@@ -17,10 +17,13 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ApiUrlConstructor } from './providers/api-url-constructor';
 import { HeroesService } from './providers/heroes.service';
 import { ComicsService } from './providers/comics.service';
+
+// Components
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { CardComponent } from './share/card/card.component';
 import { CardDetailComponent } from './share/card-detail/card-detail.component';
+import { SearchHeroComponent } from './share/search-hero/search-hero.component';
 
 
 @NgModule({
@@ -34,7 +37,8 @@ import { CardDetailComponent } from './share/card-detail/card-detail.component';
     NavbarComponent,
     FooterComponent,
     CardComponent,
-    CardDetailComponent
+    CardDetailComponent,
+    SearchHeroComponent
   ],
   imports: [
     BrowserModule,

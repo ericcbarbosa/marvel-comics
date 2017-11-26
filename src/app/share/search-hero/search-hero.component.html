@@ -1,0 +1,18 @@
+<div class="search-container">
+    
+  <input #searchBox id="searchBox" placeholder="Search by Hero"
+    (keyup)="(searchBox.value.length > 0) ? searchTerm$.next(searchBox.value) : false ">
+
+  <!-- <button *ngIf="searchBox.value" (click)="clearSearch(); searchBox.value = ''" class="btn btn-close">X</button> -->
+
+  <!-- Lista de rsultados -->
+  <ul  class="search-result collection with-links">
+
+    <h3>{{ result$ }}</h3>
+<!-- 
+    <li *ngFor="let hero of heroes$ | async" >
+      <a [routerLink]="['/comics/hero', hero.id]">{{ hero.name }}</a>
+    </li> -->
+  </ul>
+  
+</div>

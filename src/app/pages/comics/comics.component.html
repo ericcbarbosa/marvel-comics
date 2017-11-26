@@ -1,17 +1,28 @@
-<h1 *ngIf="loading">Carregando...</h1>
-<table *ngIf="!loading">
-  <thead>
-    <tr>
-      <td>Titulo</td>
-      <td>Descição</td>
-      <td>Data de Publicação</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let comic of comics">
-      <td>{{ comic.title }}</td>
-      <td>{{ comic.description }}</td>
-      <td>{{ comic.dates[0].date }}</td>
-    </tr>
-  </tbody>
-</table>
+<header>
+  <div class="content">
+    <h1 class="txt-title mt-0 mb-1">{{ pageTitle }}</h1>
+    <p class="txt-size-3 txt-color-muted">{{ pageDescription }}</p>
+  </div>
+</header>
+
+<div class="content">
+  <div class="row">
+
+    <div class="col ms12">
+      <search-hero></search-hero>
+    </div>
+
+    <div *ngIf="!loading" class="col sm-12">
+      <h2 class="txt-color-dark mb-0">Most recent comics:</h2>
+    </div>
+
+    <div *ngFor="let comic of comics" class="col ms-12 xs-6 md-4">
+      <card-comic [comic]="comic"></card-comic>
+    </div>
+
+    <div *ngIf="loading" class="col ms12 txt-center">
+      <img class="ml-auto mr-auto" src="/assets/images/loading.svg" width="80" alt="Loaging...">
+    </div>
+
+  </div>
+</div>

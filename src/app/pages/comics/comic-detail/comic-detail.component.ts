@@ -17,7 +17,7 @@ import { ComicsService } from './../../../providers/comics.service';
 export class ComicDetailComponent implements OnInit {
 
   loading: boolean = false;
-  comicId: number = 0;
+  comicId;
   pageTitle: string = `Marvel Comics :: Detail`;
   pageDescription: string = '';
 
