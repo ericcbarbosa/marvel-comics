@@ -9,20 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  comics: Observable<any>;
+  private comics: Observable<any>;
+  private disclaimer: string = '';
+  private loading: boolean = false;
+  private comicsAmount: number = 3;
 
   constructor(
     private _service: ComicsService
   ) { }
 
   ngOnInit() {
+    this.loading = true;
+    this.getMostRecentComics();
   }
 
   getMostRecentComics() {
-    return this._service.getComics(0, 6)
-                        .subscribe((response) => {
-                          this.comics = response.data.results;
-                        });
+    return this._service.getComics(0, this.comicsAmount)
+                        .subscribe(
+                          (response) => {
+                            this.disclaimer = response.attributionText;
+                            this.comics = response.data.results;
+                          },
+                          (error) => console.log(error),
+                          () => this.loading = false
+                        );
   }
 
 }

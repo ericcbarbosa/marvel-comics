@@ -1,0 +1,39 @@
+<div class="card default detail horizontal-sm">
+  <div class="card-cover">
+    <img src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}" alt="" class="img-full img-block">
+    <label class="tag info page-tag">Pages: {{ comic.pageCount }}</label>
+  </div>
+  <div class="card-content">
+    <span class="card-observation">Publication Date: {{ comic.dates[0].date | date:'dd/MM/yy' }}</span>
+    <h3 class="card-title">{{ comic.title }}</h3>
+    <p class="card-description txt-color-muted">
+      {{ comic.description ? comic.description : ( (comic.variantDescription) ? comic.variantDescription : 'No description provided.') }}
+    </p>
+
+    <h5 class="card-subtitle">Characters:</h5>
+    <ul class="list-inline info">
+      <li class="list-inline-item" 
+        *ngFor="let char of comic.characters.items">
+          <a [href]="char.resourceURI" target="_blank"> {{ char.name }} </a>
+      </li>
+    </ul>
+
+    <h5 class="card-subtitle">Creators:</h5>
+    <ul class="list-inline info">
+      <li class="list-inline-item" 
+          *ngFor="let creator of comic.creators.items">
+            {{ creator.name }}
+      </li>
+    </ul>
+
+    <h5 class="card-subtitle">Prices:</h5>
+    <span *ngFor="let price of comic.prices" 
+      class="tag success price-tag txt-capital">{{ price.type }}: ${{ price.price }}</span>
+
+    <div class="actions">
+      <a *ngFor="let url of comic.urls" 
+          href="{{ url.url }}" class="btn primary txt-capital" target="_blank">{{ url.type }}</a>
+    </div>
+
+  </div>
+</div>

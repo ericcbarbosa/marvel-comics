@@ -27,39 +27,6 @@
     @include css3-prefix('transform', $args);
 }
 
-// Define vertical, horizontal, or both position
-@mixin absolute-center($position) {
-    position: absolute;
-    
-    @if $position == 'vertical' {
-        top: 50%;
-        @include transform( translateY(-50%) );
-    }
-    @else if $position == 'horizontal' {
-        left: 50%;
-        @include transform( translateX(-50%) );
-    }
-    @else if $position == 'both' {
-        top: 50%;
-        left: 50%;
-        @include transform( translate(-50%, -50%) );
-    }
-}
-
-@mixin margin-lr($val) {
-    margin-left: $val;
-    margin-right: $val;
-}
-
-@mixin margin-center() {
-    @include margin-lr(auto);
-}
-
-@mixin padding-lr($val) {
-    padding-left: $val;
-    padding-right: $val;
-}
-
 @mixin box($orient: horizontal, $pack: center, $align: center) {
     display: -webkit-box;
     display: -moz-box;
@@ -217,6 +184,113 @@
     align-self: $align;
 }
 
+
+//  Author: Rafal Bromirski
+//  www: http://rafalbromirski.com/
+//  github: http://github.com/paranoida/sass-mediaqueries
+//
+//  Licensed under a MIT License
+//
+//  Version:
+//  1.6.1
+
+// --- generator ---------------------------------------------------------------
+
+@mixin mq($args...) {
+    $media-type: 'only screen';
+    $media-type-key: 'media-type';
+    $args: keywords($args);
+    $expr: '';
+    
+    @if map-has-key($args, $media-type-key) {
+        $media-type: map-get($args, $media-type-key);
+        $args: map-remove($args, $media-type-key);
+    }
+    
+    @each $key, $value in $args {
+        @if $value {
+            $expr: "#{$expr} and (#{$key}: #{$value})";
+        }
+    }
+    
+    @media #{$media-type} #{$expr} {
+        @content;
+    }
+}
+
+// --- screen ------------------------------------------------------------------
+
+@mixin screen($min, $max, $orientation: false) {
+    @include mq($min-width: $min, $max-width: $max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+@mixin max-screen($max) {
+    @include mq($max-width: $max) {
+        @content;
+    }
+}
+
+@mixin min-screen($min) {
+    @include mq($min-width: $min) {
+        @content;
+    }
+}
+
+@mixin screen-height($min, $max, $orientation: false) {
+    @include mq($min-height: $min, $max-height: $max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+@mixin max-screen-height($max) {
+    @include mq($max-height: $max) {
+        @content;
+    }
+}
+
+@mixin min-screen-height($min) {
+    @include mq($min-height: $min) {
+        @content;
+    }
+}
+
+// MINES:
+@mixin absolute-center($position) {
+    position: absolute;
+    margin: auto;
+    
+    @if $position == 'vertical' {
+        top: 0;
+        bottom: 0;
+    }
+    @else if $position == 'horizontal' {
+        left: 0;
+        right: 0;
+    }
+    @else if $position == 'both' {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+@mixin margin-lr($val) {
+    margin-left: $val;
+    margin-right: $val;
+}
+
+@mixin margin-center() {
+    @include margin-lr(auto);
+}
+
+@mixin padding-lr($val) {
+    padding-left: $val;
+    padding-right: $val;
+}
+
 @mixin flex-bar() {
     display: flex;
     align-items: center;
@@ -228,4 +302,29 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
+}
+
+@mixin hover($bg-color) {
+    @include transition(background .2s);
+    &:visited {
+        background-color: desaturate($bg-color, 20%);
+    }
+    &:hover {
+        border-color: darken($bg-color, 20%);
+        background-color: darken($bg-color, 10%);
+    }
+    &:active {
+        background-color: darken($bg-color, 20%);
+    }
+}
+
+
+@mixin gerate-grid($media-name, $media-size) {
+    @for $i from 1 through $grid-columns {
+        &.#{$media-name}-#{$i} { 
+            @include mq($min-width: $media-size) {
+                width: percentage( $i / $grid-columns );
+            }
+        }
+    }
 }

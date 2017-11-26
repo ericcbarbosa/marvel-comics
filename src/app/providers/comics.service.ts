@@ -30,7 +30,6 @@ export class ComicsService {
 
     if ( id == 0 || id == null || id == undefined ) {
       console.error('Informe um ID Válido');
-      return false;
     }
 
     return this.http.get( this.url.getComicsByIdUrl(id), this.headerOptions )
@@ -41,7 +40,6 @@ export class ComicsService {
 
     if ( id == 0 || id == null || id == undefined ) {
       console.error('Informe um ID Válido');
-      return false;
     }
 
     return this.http.get( this.url.getComicsByHeroIdUrl(id), this.headerOptions )

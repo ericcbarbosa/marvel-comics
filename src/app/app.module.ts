@@ -19,6 +19,8 @@ import { HeroesService } from './providers/heroes.service';
 import { ComicsService } from './providers/comics.service';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { CardComponent } from './share/card/card.component';
+import { CardDetailComponent } from './share/card-detail/card-detail.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { FooterComponent } from './layout/footer/footer.component';
     ComicHeroComponent,
     PageNotFoundComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CardComponent,
+    CardDetailComponent
   ],
   imports: [
     BrowserModule,

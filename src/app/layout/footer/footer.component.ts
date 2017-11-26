@@ -1,3 +1,4 @@
+import { ComicsService } from './../../providers/comics.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  disclaimer: string = '';
+
+  constructor(
+    private _service: ComicsService
+  ) { }
 
   ngOnInit() {
+    this.getDisclaimer()
+  }
+
+  getDisclaimer() {
+    return this._service.getComics(1, 1)
+                .subscribe(res => this.disclaimer = res.attributionText );
   }
 
 }

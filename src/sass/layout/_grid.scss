@@ -5,25 +5,33 @@
     justify-content: center;
     align-content: flex-start;
     margin-bottom: 1rem;
-
+    
     + .row {
         margin-top: 1rem;
     }
-
+    
+    
     .col {
-        flex-basis: 0;
+        flex-basis: 1;
         flex-grow: 1;
+        margin-bottom: 2rem;
         @include padding-lr(1rem);
 
-        .big {
-            flex-grow: 2;
-        }
+        @include gerate-grid('ms', $ms);
+        @include gerate-grid('mm', $mm);
+        @include gerate-grid('ml', $ml);
+        @include gerate-grid('xs', $xs);
+        @include gerate-grid('sm', $sm);
+        @include gerate-grid('md', $md);
+        @include gerate-grid('lg', $lg);
+        @include gerate-grid('xl', $xl);
     }
 }
 
 .content,
 .container {
-    max-width: 1200px;
+    width: 100%;
+    max-width: $max-width;
     padding: 1rem;
     @include margin-center();
 }

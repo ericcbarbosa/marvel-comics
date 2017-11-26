@@ -1,3 +1,22 @@
-<p>
-  comic-detail works!
-</p>
+<header>
+  <div class="content">
+    <h1 class="txt-title">{{ pageTitle }}</h1>
+    <p class="txt-size-3 txt-color-muted">{{ pageDescription }}</p>
+  </div>
+</header>
+
+<div class="content">
+  <div class="row">
+
+    <div class="col ms-12" *ngIf="!loading && comic">
+      <card-detail
+        [comic]="comic">
+      </card-detail>
+    </div>
+
+    <div class="col ms12 txt-center" *ngIf="loading">
+      <img class="ml-auto mr-auto" src="/assets/images/loading.svg" width="80" alt="Loaging...">
+    </div>
+
+  </div>
+</div>

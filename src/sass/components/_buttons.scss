@@ -5,8 +5,31 @@
     text-align: center;
     vertical-align: middle;
     text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
 
     @include border-radius($border-radius);
+
+    + .btn {
+        margin-left: 0.5rem;
+    }
+
+    &.block {
+        display: block;
+
+        + .btn {
+            margin-left: 0;
+            margin-top: 0.5rem;
+        }
+    }
+
+    &.left {
+        float: left;
+    }
+
+    &.right {
+        float: right;
+    }
 
     &.default {
         color: $color-primary;
@@ -15,42 +38,64 @@
     &.primary {
         color: $color-lighter;
         background-color: $color-primary;
+
+        @include hover($color-primary);
     }
     &.secondary {
         color: $color-lighter;
         background-color: $color-secondary;
+        
+        @include hover($color-secondary);
     }
     &.info {
         color: $color-lighter;
         background-color: $color-info;
+        
+        @include hover($color-info);
     }
     &.success {
         color: $color-lighter;
         background-color: $color-success;
+        
+        @include hover($color-success);
     }
     &.warning {
         color: $color-lighter;
         background-color: $color-warning;
+        
+        @include hover($color-warning);
     }
     &.danger {
         color: $color-lighter;
         background-color: $color-danger;
+        
+        @include hover($color-danger);
     }
     &.link {
         color: $color-link;
         background-color: transparent;
+
+        &:active {
+            text-decoration: underline;
+        }
     }
     &.lighter {
         color: $color-dark;
         background-color: $color-lighter;
+        
+        @include hover($color-lighter);
     }
     &.muted {
         color: $color-dark;
         background-color: $color-light;
+        
+        @include hover($color-muted);
     }
     &.dark {
         color: $color-lighter;
         background-color: $color-dark;
+        
+        @include hover($color-dark);
     }
 }
 
