@@ -1,0 +1,28 @@
+.search-container {
+    position: relative;
+    width: 210px;
+
+    #searchBox {
+        display: block;
+        width: 100%;
+    }
+
+    .search-result {
+        position: absolute;
+        top: 36px;
+        left: 0;
+        right: 0;
+    }
+
+    .btn-close {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        padding: 0;
+        position: absolute;
+        top: 0.5rem;
+        bottom: 0;
+        right: 0.5rem;
+        @include border-radius(100%);
+    }
+}

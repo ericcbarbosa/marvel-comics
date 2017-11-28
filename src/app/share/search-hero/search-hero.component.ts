@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject }    from 'rxjs/Subject';
@@ -25,13 +26,13 @@ export class SearchHeroComponent implements OnInit {
   }
 
   getResults() {
-    this._heroesService.searchForHero(this.searchTerm$)
-        .subscribe(results => {
-          this.result$ = results;
-        },
-        error => console.log(error),
-        () => console.log(this.result$)
-    );
+    this._heroesService
+        .searchForHero(this.searchTerm$)
+        .subscribe(results => this.result$ = results.data.results);
+  }
+
+  clearResults() {
+    this.result$ = [];
   }
 
 }

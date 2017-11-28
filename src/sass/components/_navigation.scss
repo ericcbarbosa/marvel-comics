@@ -59,6 +59,14 @@
                     background-color: darken( $color-light, 4% );
                 }
             }
+
+            &.search {
+                margin-left: auto;
+
+                li + li {
+                    margin-left: 0;
+                }
+            }
         }
     }
 }

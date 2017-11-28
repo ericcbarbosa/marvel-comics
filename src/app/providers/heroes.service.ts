@@ -39,7 +39,10 @@ export class HeroesService {
   searchForHero(terms: Observable<string>) {
     return terms.debounceTime(400)
                 .distinctUntilChanged()
-                .switchMap(term => this.url.getHeroByName( term ) )
+                .switchMap(term => this.http
+                  .get( this.url.getHeroByName( term ) )
+                  .map(res => res.json())
+                );
   }
 
 }

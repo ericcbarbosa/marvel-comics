@@ -97,7 +97,7 @@ a {
 .img-coin {
     height: 200px;
     width: 200px;
-    flex-grow: 0;
+    flex-grow: 1;
     border: 3px solid transparent;
     @include border-radius(100%);
     @include box-shadow(-4px -2px 0px 3px $color-dark);
@@ -343,6 +343,7 @@ a {
     margin: 0;
     padding: 0;
     border: 1px solid $color-muted;
+    overflow: hidden;
     @include border-radius();
 
     li {
@@ -359,8 +360,9 @@ a {
             padding: 0;
 
             a {
-                padding: 0.5rem 1rem;
+                width: 100%;
                 display: block;
+                padding: 0.5rem 1rem;
                 background: $color-light;
                 color: $color-link;
                 text-decoration: none;
