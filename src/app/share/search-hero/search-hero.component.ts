@@ -32,7 +32,7 @@ export class SearchHeroComponent implements OnInit {
   }
 
   clearResults() {
-    this.result$ = [];
+    this.result$ = null;
   }
 
 }

@@ -96,7 +96,8 @@ a {
 
 .img-coin {
     height: 200px;
-    width: 200px;
+    width: 100%;
+    max-width: calc(200px - 6px);
     flex-grow: 1;
     border: 3px solid transparent;
     @include border-radius(100%);

@@ -6,19 +6,40 @@
 </header>
 
 <div class="content">
-  <div class="row">
+  
+  <div *ngIf="!loading" class="row">
+    <div class="flex-bar flex-nowrap">
+      <div *ngFor="let hero of heroes" class="col txt-center" style="flex-basis: 20%;">
+        <a [routerLink]="['/comics/hero', hero.id]">
+          <img src="{{ hero.thumbnail.path + '.' + hero.thumbnail.extension }}" class="fl-left img-coin primary">
+        </a>
+        <h3 class="txt-size-4 mt-2">
+          <a [routerLink]="['/comics/hero', hero.id]" class="btn link">
+            {{ hero.name }}
+          </a>
+        </h3>
+      </div>
+    </div>
+  </div>
 
-    <div *ngIf="!loading" class="col sm-12">
+  <div *ngIf="!loading" class="row">
+    <div class="col sm-12">
       <h2 class="txt-color-dark mb-0">Most recent comics:</h2>
     </div>
-
     <div *ngFor="let comic of comics" class="col ms-12 xs-6 md-4">
       <card-comic [comic]="comic"></card-comic>
     </div>
+  </div>
 
+  <div class="row">
     <div *ngIf="loading" class="col ms12 txt-center">
       <img class="ml-auto mr-auto" src="/assets/images/loading.svg" width="80" alt="Loaging...">
     </div>
+  </div>
 
+  <div *ngIf="!loading" class="row">
+    <div class="col ms12 txt-center">
+      <a (click)="loadMoreComics()" class="btn success">Load more comics</a>
+    </div>
   </div>
 </div>

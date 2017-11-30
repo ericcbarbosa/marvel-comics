@@ -8,7 +8,7 @@
   <!-- Lista de rsultados -->
   <ul *ngIf="result$" class="search-result collection with-links">
     <li *ngFor="let hero of result$" >
-      <a [routerLink]="['/comics/hero', hero.id]" (click)="clearResults()">{{ hero.name }}</a>
+      <a [routerLink]="['/comics/hero', hero.id]">{{ hero.name }}</a>
     </li>
   </ul>
   

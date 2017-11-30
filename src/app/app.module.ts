@@ -18,12 +18,16 @@ import { ApiUrlConstructor } from './providers/api-url-constructor';
 import { HeroesService } from './providers/heroes.service';
 import { ComicsService } from './providers/comics.service';
 
-// Components
+// Layout
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+
+// Component
 import { CardComponent } from './share/card/card.component';
 import { CardDetailComponent } from './share/card-detail/card-detail.component';
 import { SearchHeroComponent } from './share/search-hero/search-hero.component';
+import { HighlightHeroesComponent } from './share/highlight-heroes/highlight-heroes.component';
+import { RecentComicsComponent } from './share/recent-comics/recent-comics.component';
 
 
 @NgModule({
@@ -38,7 +42,9 @@ import { SearchHeroComponent } from './share/search-hero/search-hero.component';
     FooterComponent,
     CardComponent,
     CardDetailComponent,
-    SearchHeroComponent
+    SearchHeroComponent,
+    HighlightHeroesComponent,
+    RecentComicsComponent
   ],
   imports: [
     BrowserModule,

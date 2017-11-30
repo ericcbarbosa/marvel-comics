@@ -14,6 +14,7 @@
     .col {
         flex-basis: 1;
         flex-grow: 1;
+        flex-direction: column;
         margin-bottom: 2rem;
         @include padding-lr(1rem);
 

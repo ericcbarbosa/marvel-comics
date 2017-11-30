@@ -24,7 +24,11 @@ export class ComicsComponent implements OnInit {
 
   // Comics
   private loading: boolean = false;
-  private comics: any;
+  private comics: any = [];
+
+  private queryCounter: number = 0;
+  private limit: number = 6;
+  private offset: number = this.getOffset();
 
   // Heroes
   private heroesId = [
@@ -43,24 +47,36 @@ export class ComicsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loading = true;
-    this.getMoreRecentComics();
+    this.getMoreRecentComics(this.getOffset(), this.limit);
     this.getHighlightHeroes(this.heroesId);
   }
 
-  getMoreRecentComics() {
-    this._comicsService.getComics(0, 6)
+  getMoreRecentComics(offset: number = 0, limit: number = 6) {
+    this.loading = true;
+
+    this._comicsService.getComics(offset, limit)
         .subscribe(
           res => {
-            this.comics = res.data.results
+            for (let i = 0; i < res.data.results.length; i++ ) {
+              this.comics.push(res.data.results[i]);
+            }
           },
           err => {
             console.log(err);
           },
           () => {
+            this.queryCounter++;
             this.loading = false;
           }
         );
+  }
+
+  loadMoreComics() {
+    this.getMoreRecentComics(this.getOffset(), this.limit);
+  }
+
+  getOffset():number {
+    return this.limit * this.queryCounter;
   }
 
   getHighlightHeroes(heroes) {
@@ -69,7 +85,14 @@ export class ComicsComponent implements OnInit {
         this._heroesService
             .getHeroById(hero)
             .subscribe(
-              result => this.heroes.push(result.data.results[0])
+              result => {
+                console.log(result.data.results[0].thumbnail.path+'.'+result.data.results[0].thumbnail.extension);
+                this.heroes.push(result.data.results[0]);
+              },
+              (error) => console.log(error),
+              () => {
+                // console.log(this.heroes);
+              }
             )
       }
     )

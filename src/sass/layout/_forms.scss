@@ -3,8 +3,9 @@ input, select, textarea {
     font-weight: 700;
     background-color: $color-light;
     padding: 0.6rem 1rem 0.4rem 1rem;
-    border: 2px solid $color-muted;
+    border: 2px solid darken( $color-light, 5% );
     @include border-radius();
+    @include transition(background .3s, border .3s);
     
     &:focus {
         outline: none;

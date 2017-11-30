@@ -32,13 +32,16 @@ export class ComicHeroComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.getHeroId();
-    this.getHero();
-    this.getComicByHero();
   }
 
   getHeroId(): void {
     this.route.params.subscribe(
-      params => this.heroId = params['id']
+      params => {
+        this.heroId = params['id'];
+        this.getHero();
+        this.getComicByHero();
+        console.log(params['id']);
+      }
     );
   }
 
