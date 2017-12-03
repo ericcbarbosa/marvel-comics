@@ -5,24 +5,13 @@
   </div>
 </header>
 
-<div class="content">
-  
-  <div *ngIf="!loading" class="row">
-    <div class="flex-bar flex-nowrap">
-      <div *ngFor="let hero of heroes" class="col txt-center" style="flex-basis: 20%;">
-        <a [routerLink]="['/comics/hero', hero.id]">
-          <img src="{{ hero.thumbnail.path + '.' + hero.thumbnail.extension }}" class="fl-left img-coin primary">
-        </a>
-        <h3 class="txt-size-4 mt-2">
-          <a [routerLink]="['/comics/hero', hero.id]" class="btn link">
-            {{ hero.name }}
-          </a>
-        </h3>
-      </div>
-    </div>
-  </div>
+<div class="content"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScroll()">
 
-  <div *ngIf="!loading" class="row">
+  <div class="row">
     <div class="col sm-12">
       <h2 class="txt-color-dark mb-0">Most recent comics:</h2>
     </div>

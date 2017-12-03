@@ -95,13 +95,18 @@ a {
 .img-block { display: block; }
 
 .img-coin {
-    height: 200px;
     width: 100%;
+    height: auto;
     max-width: calc(200px - 6px);
     flex-grow: 1;
-    border: 3px solid transparent;
+    border: 10px solid transparent;
+
     @include border-radius(100%);
-    @include box-shadow(-4px -2px 0px 3px $color-dark);
+    @include transition( border ease-in .3s );
+
+    &.ng-lazyloaded {
+        @include transition( all .2s );
+    }
 
     &.default {
         border-color: $color-primary;
@@ -135,6 +140,9 @@ a {
     }
     &.dark {
         border-color: $color-dark;
+    }
+    &.darker {
+        border-color: $color-darker;
     }
 }
 
@@ -375,6 +383,18 @@ a {
                     background-color: darken( $color-light, 5% );
                 }
             }
+        }
+    }
+}
+
+// Lazyload Image:
+img {    
+    &.ng-lazyload {
+        opacity: 0;
+        @include transition(opacity ease-in .3s);
+        
+        &.ng-lazyloaded {
+            opacity: 1;
         }
     }
 }

@@ -1,3 +1,32 @@
-<p>
-  highlight-heroes works!
-</p>
+
+<div *ngIf="!loading" class="row highlight-heroes">
+
+  <div class="col sm-12">
+    <h2 class="txt-left txt-color-dark mb-0">{{ title }}</h2>
+  </div>
+
+  <div class="flex-bar">
+    <div *ngFor="let hero of heroes" class="col txt-center">
+
+      <div class="card hero dark">
+        <div class="card-cover">
+          <a [routerLink]="['/comics/hero', hero.id]">
+            <img 
+              [defaultImage]="defaultImage"
+              [lazyLoad]="hero.thumbnail.path + '.' + hero.thumbnail.extension" 
+              class="ng-lazyload img-coin darker">
+          </a>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">
+            <a [routerLink]="['/comics/hero', hero.id]" class="btn link">
+              {{ hero.name }}
+            </a>
+          </h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

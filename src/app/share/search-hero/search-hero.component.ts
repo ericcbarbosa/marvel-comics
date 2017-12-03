@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject }    from 'rxjs/Subject';
@@ -18,7 +19,8 @@ export class SearchHeroComponent implements OnInit {
   private searchTerm$ = new Subject<any>();
 
   constructor(
-    private _heroesService: HeroesService
+    private _heroesService: HeroesService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,8 +33,16 @@ export class SearchHeroComponent implements OnInit {
         .subscribe(results => this.result$ = results.data.results);
   }
 
-  clearResults() {
+  clearResults(elem: any = null) {
     this.result$ = null;
+
+    if ( elem )
+      elem.value = '';
+  }
+
+  navigateToLink(heroId: number = 0) {
+    this.router.navigate(['/comics/hero', heroId])
+               .then( () => this.clearResults() );
   }
 
 }

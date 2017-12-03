@@ -1,5 +1,5 @@
 import { HeroesService } from './../../providers/heroes.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx'
@@ -26,20 +26,16 @@ export class ComicsComponent implements OnInit {
   private loading: boolean = false;
   private comics: any = [];
 
+  // Query Helpers  
   private queryCounter: number = 0;
-  private limit: number = 6;
-  private offset: number = this.getOffset();
+  private limit: number = 12;
+  private offset: number = this.getQueryOffset();
 
-  // Heroes
-  private heroesId = [
-    1009368, // Iron Man
-    1009718, // Wolverine
-    1011010, // Spider Man
-    1009268, // Deadpool
-    1009351, // Hulk
-  ];
-
-  private heroes = [];
+  // Infinit Scroll
+  private scrollConfig = {
+    docHeight: document.body.offsetHeight,
+    percentage: 60
+  }
 
   constructor(
      private _comicsService: ComicsService,
@@ -47,8 +43,7 @@ export class ComicsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getMoreRecentComics(this.getOffset(), this.limit);
-    this.getHighlightHeroes(this.heroesId);
+    this.getMoreRecentComics(this.getQueryOffset(), this.limit);
   }
 
   getMoreRecentComics(offset: number = 0, limit: number = 6) {
@@ -72,29 +67,18 @@ export class ComicsComponent implements OnInit {
   }
 
   loadMoreComics() {
-    this.getMoreRecentComics(this.getOffset(), this.limit);
+    this.getMoreRecentComics(this.getQueryOffset(), this.limit);
   }
 
-  getOffset():number {
+  getQueryOffset(): number {
     return this.limit * this.queryCounter;
   }
 
-  getHighlightHeroes(heroes) {
-    heroes.map(
-      hero => {
-        this._heroesService
-            .getHeroById(hero)
-            .subscribe(
-              result => {
-                console.log(result.data.results[0].thumbnail.path+'.'+result.data.results[0].thumbnail.extension);
-                this.heroes.push(result.data.results[0]);
-              },
-              (error) => console.log(error),
-              () => {
-                // console.log(this.heroes);
-              }
-            )
-      }
-    )
+  onScroll(event) {
+    let scrollPos: number = window.scrollY;
+    let targetHeight: number = (this.scrollConfig.docHeight * this.scrollConfig.percentage) / 100;
+
+    if (scrollPos > targetHeight)
+      this.loadMoreComics();
   }
 }

@@ -36,13 +36,13 @@ export class ComicsService {
                     .map( response => response.json() );
   }
 
-  getComicsByHeroId(id: number = 0) {
+  getComicsByHeroId(id: number = 0, offset: number = this.offset, limit: number = this.limitQuery) {
 
     if ( id == 0 || id == null || id == undefined ) {
       console.error('Informe um ID Válido');
     }
 
-    return this.http.get( this.url.getComicsByHeroIdUrl(id), this.headerOptions )
+    return this.http.get( this.url.getComicsByHeroIdUrl(id, offset, limit), this.headerOptions )
                     .map( response => response.json() );
   }
 }

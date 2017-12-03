@@ -1,6 +1,9 @@
 <div class="card default">
   <div class="card-cover">
-    <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" alt="" class="img-full img-block">
+    <img 
+      [defaultImage]="defaultImage" 
+      [lazyLoad]="comic.thumbnail.path + '.' + comic.thumbnail.extension" 
+      class="img-full img-block ng-lazyload">
   </div>
   <div class="card-content">
     <span class="card-observation">{{ comic.dates[0].date | date:'dd/MM/yyyy' }}</span>

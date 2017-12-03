@@ -9,6 +9,7 @@
     cursor: pointer;
 
     @include border-radius($border-radius);
+    @include transition( color .3s, border .3s, background .3s );
 
     + .btn {
         margin-left: 0.5rem;

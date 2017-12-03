@@ -6,16 +6,19 @@
 </header>
 
 <div class="content">
+
   <div class="row">
+
+    <div class="col sm-12">
+      <highlight-heroes [title]="'Highlight Heroes:'"></highlight-heroes>
+    </div>
 
     <div *ngIf="!loading" class="col sm-12">
       <h2 class="txt-color-dark mb-0">Most recent comics:</h2>
     </div>
 
     <div *ngFor="let comic of comics" class="col ms-12 xs-6 md-4">
-      <card-comic
-        [comic]="comic">
-      </card-comic>
+      <card-comic [comic]="comic"></card-comic>
     </div>
 
     <div *ngIf="loading" class="col ms12 txt-center">

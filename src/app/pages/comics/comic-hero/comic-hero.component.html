@@ -12,16 +12,22 @@
   </div>
 </header>
 
-<div class="content">
+<div class="content"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScroll()">
+
   <div class="row">
     
     <div *ngFor="let comic of comics" class="col ms-12 xs-6 md-4">
       <card-comic [comic]="comic"></card-comic>
     </div>
-  
-    <div *ngIf="loading" class="col ms12 txt-center">
-      <img class="ml-auto mr-auto" src="/assets/images/loading.svg" width="80" alt="Loaging...">
+    
+    <div class="col ms12 txt-center">
+      <img *ngIf="loading" class="ml-auto mr-auto" src="/assets/images/loading.svg" width="80" alt="Loaging...">
+      <a *ngIf="!loading" (click)="getMoreComicByHero()" class="btn success">Load more comics</a>
     </div>
-  
+
   </div>
 </div>

@@ -8,13 +8,21 @@
     }
 
     .search-result {
+        max-height: 200px;
+        overflow-y: auto;
         position: absolute;
         top: 36px;
         left: 0;
         right: 0;
+
+        li {
+            a {
+                cursor: pointer;
+            }
+        }
     }
 
-    .btn-close {
+    .close {
         width: 20px;
         height: 20px;
         line-height: 20px;

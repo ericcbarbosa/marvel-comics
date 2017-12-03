@@ -13,14 +13,30 @@ import { ComicsService } from './../../../providers/comics.service';
 
 export class ComicHeroComponent implements OnInit {
 
+  loading: boolean = false;
+
+  // Page Settings
   pageTitle: string = '';
   pageDescription: string = '';
   heroImage: string = '';
 
-  loading: boolean = false;
   hero: any;
-  heroId: any;
-  comics: any;
+  heroId: number;
+  comics: any = [];
+
+  // Query Helpers
+  page: number = 0;
+  limit: number = 6;
+
+  // Infinit Scroll
+  private scrollConfig = {
+    docHeight: document.body.offsetHeight,
+    percentage: 60
+  }
+
+  getOffset(): number {
+    return this.page * this.limit;
+  } 
 
   constructor(
     private route: ActivatedRoute,
@@ -40,38 +56,55 @@ export class ComicHeroComponent implements OnInit {
         this.heroId = params['id'];
         this.getHero();
         this.getComicByHero();
-        console.log(params['id']);
       }
     );
   }
 
-  getComicByHero(): void {
-    this._comicService.getComicsByHeroId(this.heroId)
-                 .subscribe(
-                   result => this.comics = result.data.results,
-                   error => console.log(error),
-                   () => {
-                     this.loading = false;
-                     this.setHeaders();
-                    }
-                 )
-  }
-
   getHero(): void {
-    this._heroService.getHeroById(this.heroId)
-                     .subscribe(
-                       result => this.hero = result.data.results[0],
-                       error => console.log(error),
-                       () => console.log(this.hero)
-                     );
+    this._heroService
+        .getHeroById( this.heroId )
+        .subscribe( result => this.hero = result.data.results[0] );
   }
 
   setHeaders() {
     this.pageTitle = `${this.hero.name}'s Comics`;
-    this.pageDescription = this.hero.description;
     this.heroImage = `${this.hero.thumbnail.path}.${this.hero.thumbnail.extension}`;
+    this.pageDescription = this.hero.description;
 
     this.loading = false;
   }
 
+  getComicByHero(offset: number = this.getOffset(), limit: number = this.limit): void {
+    this._comicService
+        .getComicsByHeroId(this.heroId, offset, limit)
+        .subscribe(
+          result => {
+            let resultLength = result.data.results.length;
+
+            for ( let i = 0; i < resultLength; i++ ) {
+              this.comics.push(result.data.results[i]);
+
+              if ( i == resultLength - 1 ) {
+                this.page++;
+                this.loading = false;
+              }
+            }
+          },
+          error => console.log(error),
+          () => this.setHeaders()
+        )
+  }
+
+  getMoreComicByHero() {
+    this.loading = true;
+    this.getComicByHero();
+  }
+
+  onScroll(event) {
+    let scrollPos: number = window.scrollY;
+    let targetHeight: number = (this.scrollConfig.docHeight * this.scrollConfig.percentage) / 100;
+
+    if (scrollPos > targetHeight)
+      this.getMoreComicByHero();
+  }
 }

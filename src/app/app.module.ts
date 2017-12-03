@@ -6,6 +6,10 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Libs
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 // Pages
 import { HomeComponent } from './pages/home/home.component';
 import { ComicsComponent } from './pages/comics/comics.component';
@@ -49,12 +53,14 @@ import { RecentComicsComponent } from './share/recent-comics/recent-comics.compo
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LazyLoadImageModule,
+    InfiniteScrollModule
   ],
   providers: [
     ApiUrlConstructor,
     ComicsService,
-    HeroesService,
+    HeroesService
   ],
   bootstrap: [AppComponent]
 })

@@ -101,6 +101,60 @@
 
     }
 
+    &.hero {
+        .card-cover {
+            padding: 1rem 1rem 0;
+
+            a {
+                img {
+                    height: 175px;
+                    width: 175px;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .card-content {
+            padding: 0 1rem 1rem;
+        }
+
+        .card-title {
+            height: 60px;
+            overflow: hidden;
+            text-align: center;
+            margin: 0;
+
+            a {
+                width: 100%;
+                display: block;
+                padding: 0;
+            }
+        }
+
+        &.dark {
+            .card-title {
+                a {
+                    color: $color-lighter;
+                }
+            }
+
+            &:hover {
+                .card-cover {
+                    a {
+                        img {
+                            border-color: $color-link;
+                        }
+                    }
+                }
+                .card-title {
+                    a {
+                        color: $color-link;
+                    }
+                }
+            }
+        }
+    }
+
     &.default {
         color: $color-dark;
         background-color: $color-light;

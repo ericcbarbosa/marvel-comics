@@ -286,6 +286,11 @@
     @include margin-lr(auto);
 }
 
+@mixin padding-tb($val) {
+    padding-top: $val;
+    padding-bottom: $val;
+}
+
 @mixin padding-lr($val) {
     padding-left: $val;
     padding-right: $val;

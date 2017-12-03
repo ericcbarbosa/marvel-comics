@@ -9,9 +9,7 @@
   <div class="row">
 
     <div class="col ms-12" *ngIf="!loading && comic">
-      <card-detail
-        [comic]="comic">
-      </card-detail>
+      <card-detail [comic]="comic"></card-detail>
     </div>
 
     <div class="col ms12 txt-center" *ngIf="loading">
