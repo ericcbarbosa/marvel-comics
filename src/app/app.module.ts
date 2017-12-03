@@ -22,14 +22,18 @@ import { ApiUrlConstructor } from './providers/api-url-constructor';
 import { HeroesService } from './providers/heroes.service';
 import { ComicsService } from './providers/comics.service';
 
+// Modules
+import { SharedModule } from './share/shared.module';
+import { ComicsModule } from './pages/comics/comics.module';
+
 // Layout
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 // Component
+import { SearchHeroComponent } from './share/search-hero/search-hero.component';
 import { CardComponent } from './share/card/card.component';
 import { CardDetailComponent } from './share/card-detail/card-detail.component';
-import { SearchHeroComponent } from './share/search-hero/search-hero.component';
 import { HighlightHeroesComponent } from './share/highlight-heroes/highlight-heroes.component';
 import { RecentComicsComponent } from './share/recent-comics/recent-comics.component';
 
@@ -38,29 +42,16 @@ import { RecentComicsComponent } from './share/recent-comics/recent-comics.compo
   declarations: [
     AppComponent,
     HomeComponent,
-    ComicsComponent,
-    ComicDetailComponent,
-    ComicHeroComponent,
     PageNotFoundComponent,
     NavbarComponent,
     FooterComponent,
-    CardComponent,
-    CardDetailComponent,
-    SearchHeroComponent,
-    HighlightHeroesComponent,
-    RecentComicsComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    SharedModule,
+    ComicsModule,
     AppRoutingModule,
-    LazyLoadImageModule,
-    InfiniteScrollModule
-  ],
-  providers: [
-    ApiUrlConstructor,
-    ComicsService,
-    HeroesService
   ],
   bootstrap: [AppComponent]
 })

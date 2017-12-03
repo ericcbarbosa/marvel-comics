@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
@@ -10,9 +11,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'comics', component: ComicsComponent },
-  { path: 'comics/:id', component: ComicDetailComponent },
-  { path: 'comics/hero/:id', component: ComicHeroComponent },
+  { path: 'comics', loadChildren: 'app/pages/comics/comics.module#ComicsModule' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

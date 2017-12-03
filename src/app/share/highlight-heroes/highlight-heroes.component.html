@@ -8,13 +8,13 @@
   <div class="flex-bar">
     <div *ngFor="let hero of heroes" class="col txt-center">
 
-      <div class="card hero dark">
+      <div class="card hero default">
         <div class="card-cover">
           <a [routerLink]="['/comics/hero', hero.id]">
             <img 
               [defaultImage]="defaultImage"
               [lazyLoad]="hero.thumbnail.path + '.' + hero.thumbnail.extension" 
-              class="ng-lazyload img-coin darker">
+              class="ng-lazyload img-coin light">
           </a>
         </div>
         <div class="card-content">

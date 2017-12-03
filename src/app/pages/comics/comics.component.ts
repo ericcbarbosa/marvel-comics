@@ -1,4 +1,3 @@
-import { HeroesService } from './../../providers/heroes.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 
@@ -7,6 +6,7 @@ import { Subject }    from 'rxjs/Subject';
 import { of }         from 'rxjs/observable/of';
 
 import { ComicsService } from './../../providers/comics.service';
+import { HeroesService } from './../../providers/heroes.service';
 
 @Component({
   selector: 'app-comics',
