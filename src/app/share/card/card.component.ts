@@ -9,9 +9,10 @@ export class CardComponent implements OnInit {
 
   @Input() comic: any;
 
+  noDescription: string = 'Ops! There is no description for this one yet!';
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

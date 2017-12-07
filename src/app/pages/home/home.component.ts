@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   private comics: any;
   private disclaimer: any;
   private loading: boolean = false;
-  private comicsAmount: number = 3;
+  private comicsAmount: number = 6;
 
   constructor(
     private _service: ComicsService

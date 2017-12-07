@@ -4,16 +4,16 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../../share/shared.module';
 import { ComicsRoutingModule } from './comics-routing.module';
 
-// Components
-import { ComicsComponent } from './comics.component';
-import { ComicDetailComponent } from './comic-detail/comic-detail.component';
-import { ComicHeroComponent } from './comic-hero/comic-hero.component';
-
 // Providers
 import { ApiUrlConstructor } from './../../providers/api-url-constructor';
 import { HeroesService } from './../../providers/heroes.service';
 import { ComicsService } from './../../providers/comics.service';
+
+// Components
 import { CardComponent } from '../../share/card/card.component';
+import { ComicsComponent } from './comics.component';
+import { ComicDetailComponent } from './comic-detail/comic-detail.component';
+import { ComicHeroComponent } from './comic-hero/comic-hero.component';
 
 
 @NgModule({
@@ -32,4 +32,5 @@ import { CardComponent } from '../../share/card/card.component';
     HeroesService
   ]
 })
+
 export class ComicsModule { }

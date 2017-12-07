@@ -9,8 +9,7 @@ import { ComicHeroComponent } from './pages/comics/comic-hero/comic-hero.compone
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'comics', loadChildren: 'app/pages/comics/comics.module#ComicsModule' },
   { path: '**', component: PageNotFoundComponent }
 ];

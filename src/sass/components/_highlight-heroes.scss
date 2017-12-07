@@ -1,7 +1,2 @@
 .highlight-heroes {
-    .col {
-        @include mq($min-width: $md) {
-            width: 20%;
-        }
-    }
 }

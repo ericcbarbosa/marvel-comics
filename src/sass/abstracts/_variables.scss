@@ -1,3 +1,18 @@
+// dimensions
+$xl: 1400px;
+$lg: 1200px;
+$md: 1000px;
+$sm: 800px;
+$xs: 600px;
+
+// Mobile
+$ml: 480px;
+$mm: 390px;
+$ms: 320px;
+
+$max-width: $lg;
+
+$grid-columns: 12;
 $marvel-red: hsl(357, 88%, 51%);
 $black: hsl(0, 0%, 0%);
 $white: hsl(0, 0%, 100%);
@@ -30,17 +45,3 @@ $body-family: $font-primary;
 $body-font-size: 16px;
 
 $border-radius: 5px;
-
-// dimensions
-$xl: 1400px;
-$lg: 1200px;
-$md: 1000px;
-$sm: 800px;
-$xs: 600px;
-$ml: 480px;
-$mm: 390px;
-$ms: 320px;
-
-$max-width: $lg;
-
-$grid-columns: 12;

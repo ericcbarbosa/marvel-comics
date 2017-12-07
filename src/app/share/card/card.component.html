@@ -8,6 +8,9 @@
   <div class="card-content">
     <span class="card-observation">{{ comic.dates[0].date | date:'dd/MM/yyyy' }}</span>
     <h3 class="card-title">{{ comic.title }}</h3>
+    <p class="card-description">
+      {{ (comic.description) ? comic.description : noDescription }}
+    </p>
     <a [routerLink]="['/comics', comic.id]" class="btn primary">Details</a>
   </div>
 </div>

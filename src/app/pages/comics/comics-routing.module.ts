@@ -7,7 +7,7 @@ import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicsComponent } from './comics.component';
 
 const routes: Routes = [{
-  path: 'comics',
+  path: '',
   children: [
     { path: '',    component: ComicsComponent },
     { path: ':id', component: ComicDetailComponent },

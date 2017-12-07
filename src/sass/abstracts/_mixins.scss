@@ -329,6 +329,7 @@
         &.#{$media-name}-#{$i} { 
             @include mq($min-width: $media-size) {
                 width: percentage( $i / $grid-columns );
+                flex-basis: percentage( $i / $grid-columns );
             }
         }
     }

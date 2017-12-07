@@ -110,6 +110,8 @@
                     height: 175px;
                     width: 175px;
                     object-fit: cover;
+
+                    @include transition(all ease-in .2s);
                 }
             }
         }
@@ -138,6 +140,23 @@
                 }
             }
 
+            &:hover {
+                .card-cover {
+                    a {
+                        img {
+                            border-color: $color-link;
+                        }
+                    }
+                }
+                .card-title {
+                    a {
+                        color: $color-link;
+                    }
+                }
+            }
+        }
+
+        &.default {
             &:hover {
                 .card-cover {
                     a {

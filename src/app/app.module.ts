@@ -12,9 +12,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 // Pages
 import { HomeComponent } from './pages/home/home.component';
-import { ComicsComponent } from './pages/comics/comics.component';
-import { ComicDetailComponent } from './pages/comics/comic-detail/comic-detail.component';
-import { ComicHeroComponent } from './pages/comics/comic-hero/comic-hero.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 // Providers
@@ -24,7 +21,6 @@ import { ComicsService } from './providers/comics.service';
 
 // Modules
 import { SharedModule } from './share/shared.module';
-import { ComicsModule } from './pages/comics/comics.module';
 
 // Layout
 import { NavbarComponent } from './layout/navbar/navbar.component';
@@ -50,8 +46,12 @@ import { RecentComicsComponent } from './share/recent-comics/recent-comics.compo
     BrowserModule,
     HttpModule,
     SharedModule,
-    ComicsModule,
-    AppRoutingModule,
+    AppRoutingModule
+  ],
+  providers: [
+    ApiUrlConstructor,
+    HeroesService,
+    ComicsService
   ],
   bootstrap: [AppComponent]
 })

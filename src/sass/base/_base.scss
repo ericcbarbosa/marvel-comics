@@ -3,7 +3,7 @@ body {
     font-size: $body-font-size;
     
     @include mq($max-width: $md) {
-        font-size: $body-font-size * 0.8;
+        font-size: $body-font-size * 0.9;
     }
     
     @include mq($max-width: $ml) {

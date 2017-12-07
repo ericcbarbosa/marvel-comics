@@ -43,6 +43,7 @@ export class ComicsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('teste');
     this.getMoreRecentComics(this.getQueryOffset(), this.limit);
   }
 

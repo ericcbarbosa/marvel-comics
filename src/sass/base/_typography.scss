@@ -2,10 +2,30 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-highlight;
 }
-h1 { font-size: 4rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 2rem; }
-p { font-size: 1rem; }
+h1 { 
+    font-size: 4rem;
+
+    @include mq( $max-width: $xs ) {
+        font-size: 3rem;
+    }
+}
+h2 { 
+    font-size: 2.5rem;
+
+    @include mq( $max-width: $xs ) {
+        font-size: 2rem;
+    }
+}
+h3 { 
+    font-size: 2rem;
+
+    @include mq( $max-width: $xs ) {
+        font-size: 1.5rem;
+    }
+}
+p { 
+    font-size: 1rem;
+}
 
 h4, h5, h6 {
     margin-top: 0.7rem;

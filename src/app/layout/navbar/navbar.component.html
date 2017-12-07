@@ -5,7 +5,7 @@
         <img src="/assets/images/marvel-logo.svg" style="width: 100%">
       </a>
     </li>
-    <li routerLinkActive="active"><a routerLink="/home" class="nav-link default">Home</a></li>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/" class="nav-link default">Home</a></li>
     <li routerLinkActive="active"><a routerLink="/comics" class="nav-link default">Comics</a></li>
     <li class="search">
       <search-hero></search-hero>
