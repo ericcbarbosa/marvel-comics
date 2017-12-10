@@ -22,7 +22,7 @@
         }
     }
 
-    .close {
+    .btn {
         width: 20px;
         height: 20px;
         line-height: 20px;
@@ -31,6 +31,14 @@
         top: 0.5rem;
         bottom: 0;
         right: 0.5rem;
-        @include border-radius(100%);
+
+        &.search {
+            cursor: default;
+            outline: none;
+        }
+
+        &.close {
+            cursor: pointer;
+        }
     }
 }

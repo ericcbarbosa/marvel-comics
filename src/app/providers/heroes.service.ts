@@ -22,7 +22,7 @@ export class HeroesService {
     private url: ApiUrlConstructor
   ) { }
 
-  getHeroById(id: number = 0) {
+  getHeroById(id: number = 43092) {
     if ( id == 0 || id == null || id == undefined ) {
       console.error('Informe um ID Válido');
     }

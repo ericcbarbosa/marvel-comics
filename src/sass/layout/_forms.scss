@@ -9,7 +9,7 @@ input, select, textarea {
     
     &:focus {
         outline: none;
-        border-color: $color-primary;
+        border-color: $color-link;
         background-color: lighten($color-light, 10%);
     }
 }
