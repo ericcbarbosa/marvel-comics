@@ -9,6 +9,7 @@ export class CardComponent implements OnInit {
 
   @Input() comic: any;
 
+  defaultImage: string = '';
   noDescription: string = 'Ops! There is no description for this one yet!';
 
   constructor() { }

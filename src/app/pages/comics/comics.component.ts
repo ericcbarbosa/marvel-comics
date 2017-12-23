@@ -23,8 +23,8 @@ export class ComicsComponent implements OnInit {
   pageDescription: string = '';
 
   // Comics
-  private loading: boolean = false;
-  private comics: any = [];
+  loading: boolean = false;
+  comics: any = [];
 
   // Query Helpers  
   private queryCounter: number = 0;
@@ -32,7 +32,7 @@ export class ComicsComponent implements OnInit {
   private offset: number = this.getQueryOffset();
 
   // Infinit Scroll
-  private scrollConfig = {
+  scrollConfig = {
     docHeight: document.body.offsetHeight,
     percentage: 60
   }
@@ -74,7 +74,7 @@ export class ComicsComponent implements OnInit {
     return this.limit * this.queryCounter;
   }
 
-  onScroll(event) {
+  onScroll() {
     let scrollPos: number = window.scrollY;
     let targetHeight: number = (this.scrollConfig.docHeight * this.scrollConfig.percentage) / 100;
 

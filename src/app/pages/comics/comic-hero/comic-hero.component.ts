@@ -29,7 +29,7 @@ export class ComicHeroComponent implements OnInit {
   limit: number = 6;
 
   // Infinit Scroll
-  private scrollConfig = {
+  scrollConfig = {
     docHeight: document.body.offsetHeight,
     percentage: 60
   }
@@ -100,7 +100,7 @@ export class ComicHeroComponent implements OnInit {
     this.getComicByHero();
   }
 
-  onScroll(event) {
+  onScroll() {
     let scrollPos: number = window.scrollY;
     let targetHeight: number = (this.scrollConfig.docHeight * this.scrollConfig.percentage) / 100;
 

@@ -10,10 +10,10 @@ export class HighlightHeroesComponent implements OnInit {
 
   @Input() title: string;
 
-  private loading = false;
+  loading = false;
 
   // Heroes
-  private heroesId = [
+  heroesId = [
     1009368, // Iron Man
     1009718, // Wolverine
     1011010, // Spider Man
@@ -21,7 +21,7 @@ export class HighlightHeroesComponent implements OnInit {
     1009351, // Hulk
   ];
   
-  private heroes = [];
+  heroes = [];
 
   constructor(
     private _service: HeroesService

@@ -16,7 +16,7 @@ import { HeroesService } from '../../providers/heroes.service';
 export class SearchHeroComponent implements OnInit {
 
   result$: any;
-  private searchTerm$ = new Subject<any>();
+  searchTerm$ = new Subject<any>();
 
   constructor(
     private _heroesService: HeroesService,

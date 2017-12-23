@@ -9,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  private comics: any;
-  private disclaimer: any;
-  private loading: boolean = false;
-  private comicsAmount: number = 6;
+  comics: any;
+  disclaimer: any;
+  loading: boolean = false;
+  comicsAmount: number = 6;
 
   constructor(
     private _service: ComicsService

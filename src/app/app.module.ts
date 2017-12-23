@@ -31,7 +31,6 @@ import { CardComponent } from './share/card/card.component';
 import { SearchHeroComponent } from './share/search-hero/search-hero.component';
 import { CardDetailComponent } from './share/card-detail/card-detail.component';
 import { HighlightHeroesComponent } from './share/highlight-heroes/highlight-heroes.component';
-import { RecentComicsComponent } from './share/recent-comics/recent-comics.component';
 
 
 @NgModule({
