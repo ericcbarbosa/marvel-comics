@@ -45,7 +45,13 @@ h4, h5, h6 {
 .txt-capital { text-transform: capitalize; }
 
 .txt-title,
-.txt-subtitle { font-family: $font-highlight; }
+.txt-subtitle { 
+    font-family: $font-highlight;
+
+    @include mq($max-width: $xs) {
+        text-align: center;
+    }
+}
 
 .txt-color-primary { color: $color-primary; }
 .txt-color-secondary { color: $color-secondary; }

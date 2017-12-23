@@ -1,27 +1,26 @@
 # MarvelComics
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
+Welcome to `Marvel Comics` project, made with love on study purposes, powered by [Marvel's API](https://developer.marvel.com/) and [Angular](https://angular.io/).
 
-## Development server
+The ideia of this site is provide any information the user wants about the Marvel Universe and it's comics through a simple, elegant and responsive interface.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+// TODO: HOME SCREEN GIF
 
-## Code scaffolding
+In order to have a better user experience, the website take andvantage of the lazyloading on imagens and requests. There's also a search field, where you can simple type the name of yout favorite hero and find a list of he's comics.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+// 
 
-## Build
+I hope you all enjoy this project as much as I did while developing it.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Made with [Angular](https://angular.io/), using:
 
-## Running unit tests
+* HTML5
+* Angular CLI
+* Sass (scss syntax)
+* Typescript and ES6
+* RxJS (Reactive Programming) 
+* Jasmine and Karma for tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Made with love Sz

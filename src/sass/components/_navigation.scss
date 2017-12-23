@@ -16,8 +16,18 @@
         li {
             display: flex;
 
+            @include mq($max-width: $xs) {
+                display: flex;
+                flex-grow: 1;
+                text-align: center;
+            }
+
             + li {
                 margin-left: 0.5rem;
+
+                @include mq($max-width: $xs) {
+                    margin-left: 0;
+                }
             }
 
             &.logo {
@@ -25,10 +35,23 @@
                 padding-right: 1rem;
                 border-right: 2px solid darken( $color-light, 5% );
 
+                @include mq($max-width: $xs) {
+                    width: 100%;
+                    padding-right: 0;
+                    border: none;
+                }
+
                 .nav-link {
+                    max-width: 150px;
                     padding: 0.2rem;
                     @include transition( transform ease-in-out .3s )
                     @include transform( scale(1) );
+
+                    @include mq($max-width: $xs) {
+                        display: inline-block;
+                        margin: auto;
+                        padding: 0 0 1rem;
+                    }
 
                     &:hover,
                     &:focus {
@@ -46,6 +69,10 @@
                 border: 1px solid transparent;
                 @include border-radius(3px);
 
+                @include mq($max-width: $xs) {
+                    width: 100%;
+                }
+
                 &:hover,
                 &:focus {
                     border-color: darken( $color-light, 6% );
@@ -62,6 +89,24 @@
 
             &.search {
                 margin-left: auto;
+
+                @include mq($max-width: $xs) {
+                    width: 100%;
+                }
+
+                search-hero {
+                    @include mq($max-width: $xs) {
+                        width: 100%;
+                        margin-top: 1rem;
+                    }
+                    
+                    .search-container {
+                        @include mq($max-width: $xs) {
+                            width: 100%;
+                        }
+                    }
+                }
+
 
                 li + li {
                     margin-left: 0;

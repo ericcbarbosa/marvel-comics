@@ -9,11 +9,11 @@
 
   <div class="row">
 
-    <div class="col sm-12">
+    <div class="col ms-12">
       <highlight-heroes [title]="'Highlight Heroes:'"></highlight-heroes>
     </div>
 
-    <div *ngIf="!loading" class="col sm-12">
+    <div *ngIf="!loading" class="col ms-12">
       <h2 class="txt-color-dark mb-0">Most recent comics:</h2>
     </div>
 
@@ -21,7 +21,7 @@
       <card-comic [comic]="comic"></card-comic>
     </div>
 
-    <div *ngIf="loading" class="col ms12 txt-center">
+    <div *ngIf="loading" class="col ms-12 txt-center">
       <img class="ml-auto mr-auto" src="/assets/images/loading.svg" width="80" alt="Loaging...">
     </div>
 
