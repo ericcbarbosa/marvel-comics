@@ -4,11 +4,11 @@ Welcome to `Marvel Comics` project, made with love on study purposes, powered by
 
 The ideia of this site is provide any information the user wants about the Marvel Universe and it's comics through a simple, elegant and responsive interface.
 
-![](https://imgur.com/khpEdIC)
+![Marvel Comics home gif](https://i.imgur.com/FCyBHmi.gifv)
 
 In order to have a better user experience, the website take andvantage of the lazyloading on imagens and requests. There's also a search field, where you can simple type the name of yout favorite hero and find a list of he's comics.
 
-![](https://imgur.com/v0giKVt)
+![Marvel Comics search by hero name gif](https://i.imgur.com/aoXVJaX.gifv)
 
 I hope you all enjoy this project as much as I did while developing it.
 
