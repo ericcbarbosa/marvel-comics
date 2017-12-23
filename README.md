@@ -23,4 +23,4 @@ I hope you all enjoy this project as much as I did while developing it.
 
 
 
-Made with love Sz
+With love Sz
